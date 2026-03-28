@@ -1,0 +1,226 @@
+/* Estilos inspirados na Netflix */
+/*
+:root define variáveis CSS globais (custom properties) acessíveis em todo o documento.
+--bg-color, --text-color, --link-color são variáveis reutilizáveis para temas.
+*/
+:root {
+    --bg-color: #141414; /* cor do fundo em tema escuro */
+    --text-color: #fff; /* cor do texto em tema escuro */
+    --link-color: #fff; /* cor de links em tema escuro */
+}
+
+body.dark {
+    --bg-color: #141414;
+    --text-color: #fff;
+    --link-color: #fff;
+}
+
+body.light {
+    --bg-color: #fff;
+    --text-color: #000;
+    --link-color: #000;
+}
+
+#theme-toggle {
+    /* posiciona o botão no canto superior direito */
+    position: absolute;
+    top: 20px; /* distância do topo */
+    right: 20px; /* distância da borda direita */
+    padding: 0.5rem; /* espaço interno ao redor do conteúdo */
+    width: 40px; /* largura fixa */
+    height: 40px; /* altura fixa */
+    background-color: var(--text-color); /* fundo do botão inverso ao tema atual */
+    color: var(--bg-color); /* cor do ícone do botão inversa ao tema */
+    border: none; /* remove borda padrão do botão */
+    border-radius: 50%; /* forma circular */
+    cursor: pointer; /* mostra o cursor de clique */
+    font-size: 1.2rem; /* tamanho do emoji do ícone */
+    display: flex; /* usa flexbox para centralizar o ícone */
+    align-items: center; /* alinha verticalmente o conteúdo */
+    justify-content: center; /* centraliza horizontalmente */
+}
+
+body {
+    /* fundo escuro característico da marca */
+    background-color: var(--bg-color); /* define cor de fundo por variável */
+    /* texto em branco para contraste */
+    color: var(--text-color); /* define cor do texto por variável */
+    /* tipografia sans-serif limpa e moderna */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* fontes fallback */
+    /* remove espaçamentos padrão do body */
+    margin: 0; /* remove margem padrão do navegador */
+    padding: 0; /* remove padding padrão do navegador */
+    /* usa flexbox para centralizar conteúdo */
+    display: flex; /* ativa flexbox */
+    text-align: center; /* centro do texto em elementos inline */
+    justify-content: center; /* centraliza conteúdo horizontalmente */
+    align-items: center; /* centraliza conteúdo verticalmente */
+    /* altura total da janela para ocupar toda tela */
+    height: 100vh; /* 100% da altura da viewport */
+    flex-direction: column; /* empilha conteúdos verticalmente */
+}
+
+/* remove marcadores de lista para perfis */
+ul {
+    list-style: none; /* remove marcadores */
+    /* remove preenchimento padrão */
+    padding: 0;
+    /* remove margem padrão */
+    margin: 0;
+    /* usa layout flexível */
+    display: flex; /* exibe filhos em linha com flexbox */
+    /* permite quebra de linha para itens */
+    flex-wrap: wrap; /* permite várias linhas */
+    /* centraliza itens horizontalmente */
+    justify-content: center;
+    /* espaço entre itens */
+    gap: 3rem; /* espaçamento entre filhos flex */
+}
+
+main h1 {
+    /* tamanho grande de título */
+    font-size: 3rem;
+    /* espaçamento abaixo do título */
+    margin-bottom: 2rem;
+}
+
+.profile {
+    /* remove sublinhado de links */
+    text-decoration: none;
+    /* garante cor branca do texto */
+    color: var(--link-color);
+    /* preserva dimensão e permite animar caso necessário */
+    display: inline-block;
+}
+
+.profile img {
+    /* dimensões fixas para as imagens dos perfis */
+    width: 150px;
+    /* altura fixa das imagens */
+    height: 150px;
+    /* bordas arredondadas */
+
+    box-sizing: border-box;
+    /* borda inicial invisível para manter tamanho igual ao hover */
+    border: 1px solid transparent;
+    /* mantém a proporção da imagem preenchendo o contêiner */
+    object-fit: cover;
+    /* transição suave de transform e borda */
+    transition: transform 0.18s ease, border-color 0.25s ease;
+}
+
+.profile:hover img {
+    /* gradecimento leve de tamanho no hover sem afetar a disposição dos outros perfis */
+    transform: scale(1.01);
+    /* adiciona borda levemente branca no hover */
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+.profile:hover figcaption {
+    /* nome branco ao passar mouse no perfil */
+    color: #fff;
+}
+
+.profile figure {
+    /* limpa margem padrão de figure */
+    margin: 0;
+}
+
+.profile img {
+    /* dimensões fixas para as imagens dos perfis */
+    width: 150px;
+    /* altura fixa das imagens */
+    height: 150px;
+    /* bordas arredondadas */
+    box-sizing: border-box;
+    /* borda inicial invisível para manter tamanho igual ao hover */
+    border: 1px solid transparent;
+    /* mantém a proporção da imagem preenchendo o contêiner */
+    object-fit: cover;
+}
+
+.profile figcaption {
+    /* espaço acima da legenda */
+    margin-top: 0.5rem;
+    /* tamanho de fonte legível */
+    font-size: 1.2rem;
+    /* cor inicial do nome do perfil */
+    color: #9b9b9b; /* cinza claro */
+    /* transição suave para mudança de cor */
+    transition: color 0.3s ease;
+}
+
+body.dark .profile:hover figcaption {
+    /* nome branco no hover em modo escuro */
+    color: #fff;
+}
+
+body.light .profile:hover figcaption {
+    /* nome preto no hover em modo claro */
+    color: #000;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    main h1 {
+        /* reduz tamanho do título em tablets */
+        font-size: 2.5rem;
+        /* ajusta espaçamento */
+        margin-bottom: 1.5rem;
+    }
+
+    .profiles {
+        /* reduz espaço entre perfis */
+        gap: 2rem;
+    }
+
+    #theme-toggle {
+        font-size: 1rem;
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile img {
+        /* reduz tamanho das imagens */
+        width: 120px;
+        /* reduz altura das imagens */
+        height: 120px;
+    }
+
+    .profile figcaption {
+        /* reduz tamanho da fonte */
+        font-size: 1rem;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    main h1 {
+        /* reduz ainda mais o título */
+        font-size: 1.8rem;
+        /* ajusta espaçamento */
+        margin-bottom: 1.5rem;
+    }
+
+    ul{
+        /* usa grid para layout 2x2 */
+        display: grid;
+        /* define duas colunas iguais */
+        grid-template-columns: repeat(2, 1fr);
+        /* reduz gap um pouco */
+        column-gap: 0.1rem; /* espaço entre colunas */
+        row-gap: 3rem; /* mantém espaço entre linhas */
+    }
+
+    .profile img {
+        /* reduz tamanho das imagens */
+        width: 100px;
+        /* reduz altura das imagens */
+        height: 100px;
+    }
+
+    .profile figcaption {
+        /* reduz fonte */
+        font-size: 0.9rem;
+    }
+}
