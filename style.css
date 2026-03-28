@@ -16,7 +16,7 @@ body.dark {
 }
 
 body.light {
-    --bg-color: #fff;
+    --bg-color: #f8f7f7;
     --text-color: #000;
     --link-color: #000;
 }
@@ -109,16 +109,19 @@ main h1 {
     transition: transform 0.18s ease, border-color 0.25s ease;
 }
 
-.profile:hover img {
+body.dark .profile:hover img {
     /* gradecimento leve de tamanho no hover sem afetar a disposição dos outros perfis */
     transform: scale(1.01);
     /* adiciona borda levemente branca no hover */
     border-color: rgba(255, 255, 255, 0.85);
 }
 
-.profile:hover figcaption {
-    /* nome branco ao passar mouse no perfil */
-    color: #fff;
+body.light .profile:hover img {
+    /* gradecimento leve de tamanho no hover sem afetar a disposição dos outros perfis */
+    transform: scale(1.01);
+    /* adiciona borda levemente branca no hover */
+    border: 2px solid transparent;
+    border-color: rgb(255, 0, 0);
 }
 
 .profile figure {

@@ -1,4 +1,4 @@
-import { categories } from './data.js';
+import { perfilData } from './data.js';
 import { createCarousel } from './components/Carousel.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('main-content');
     
     if (container) {
+        const categories = perfilData[nomePerfil] || perfilData['Bulbasaur']; // fallback para Bulbasaur se perfil não encontrado
         categories.forEach(category => {
             const carousel = createCarousel(category);
             container.appendChild(carousel);
