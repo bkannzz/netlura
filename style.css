@@ -206,13 +206,9 @@ body.light .profile:hover figcaption {
     }
 
     ul{
-        /* usa grid para layout 2x2 */
-        display: grid;
+        display: flex;
         /* define duas colunas iguais */
-        grid-template-columns: repeat(2, 1fr);
-        /* reduz gap um pouco */
-        column-gap: 0.1rem; /* espaço entre colunas */
-        row-gap: 3rem; /* mantém espaço entre linhas */
+        column-gap: 0.5rem; /* espaço entre colunas */
     }
 
     .profile img {
